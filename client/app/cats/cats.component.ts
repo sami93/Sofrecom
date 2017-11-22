@@ -44,7 +44,15 @@ export class CatsComponent implements OnInit {
     // thus we ensure the data is fetched before rendering
     this.dtTrigger = new Subject();
     this.dtOptions = {
+      searching: true,
       pagingType: 'full_numbers',
+      scrollX: false,
+      autoWidth: true,
+      deferRender: true,
+      info: true,
+      lengthChange: true,
+      ordering: true,
+      paging: true,
 
       // Configure the buttons
       buttons: [
