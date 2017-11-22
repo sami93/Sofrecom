@@ -1,11 +1,10 @@
-<app-loading [condition]="isLoading"></app-loading>
 
-<app-toast [message]="toast.message"></app-toast>
 
 <div class="card" *ngIf="!isLoading">
+
   <h4 class="card-header">Current cats ({{cats.length | json}})</h4>
   <div class="card-block">
-    <table class="table table-bordered table-striped">
+    <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="row-border hover">
       <thead class="thead-default">
         <tr>
           <th>Name</th>
@@ -14,13 +13,13 @@
           <th>Actions</th>
         </tr>
       </thead>
-      <tbody *ngIf="cats.length === 0">
+      <tbody *ngIf="datasets.length === 0">
         <tr>
           <td colspan="4">There are no cats in the DB. Add a new cat below.</td>
         </tr>
       </tbody>
       <tbody *ngIf="!isEditing">
-        <tr *ngFor="let cat of cats">
+        <tr *ngFor="let cat of datasets">
           <td>{{cat.name}}</td>
           <td>{{cat.age}}</td>
           <td>{{cat.weight}}</td>
